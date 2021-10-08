@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body style="background-color: rgb(213, 192, 231);"> 
+    
+  <img src="src/logo.svg" alt=""    width="250px" >
+    <h1>Bienvenido a tu banco</h1>
+    <!-- BOTONES -->
+      <label for="movimiento">¿Qué tipo de movimiento desea realizar?: </label>
+      <select id="movimiento">
+        <option value="">--Seleccione una opción--</option>
+        <option value="saldo">Consultar saldo</option>
+        <option value="deposito">Realizar depósito</option>
+        <option value="retiro">Realizar retiro</option>    
+      </select>
+      <p></p>
+<script>
+/* OPERACIONES-MOVIMIENTOS*/
+let saldo= 200; 
+let retiro;
+let deposito;
+let seleccionar = document.querySelector('select');
+let parrafo = document.querySelector('p');
+let movimiento = 10<saldo && saldo<990;
+seleccionar.addEventListener('change', seleccionaMovimiento);
+function seleccionaMovimiento() {
+ let eleccion = seleccionar.value;
+  if (eleccion === 'saldo')  {
+   window.alert("TU SALDO ACTUAL ES:"+saldo);;
+  } else if (eleccion === 'deposito'){
+    let deposito=parseInt(prompt("Ingrese la cantidad a depositar"));
+    saldo=saldo+deposito;
+    if (10<saldo&& saldo <990){
+        window.alert("TU SALDO ACTUAL ES:"+saldo);
+    }else  {
+        saldo=saldo-deposito
+        window.alert('Lo siento la operación no pudo ser realizada X(')
+    }
+  }else{  (eleccion === 'retiro')
+    let retiro=parseInt(prompt("Ingrese la cantidad a retirar"));
+    saldo=saldo-retiro;
+    if(10<saldo&& saldo <990){
+    window.alert("TU SALDO ACTUAL ES:"+saldo);
+    } else  {
+        saldo=saldo+retiro;
+        window.alert('Lo siento la operación no pudo ser realizada X(')
+  }
+}
+}
+</script>
+</body>     
+</html>
